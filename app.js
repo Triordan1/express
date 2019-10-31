@@ -1,22 +1,17 @@
-const express = require("express");
-const app = express();
+var express = require("express");
+var app = express();
+var path = require("path");
 app.engine('html',require('ejs').renderFile);
 app.use(express.static("public"));
-
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'html');
 //routes
-app.get("/",function(req,res){
-    res.render("index.html");
-});
-
-app.get("/mercury", function(req,res){
-    res.render("mercury.html");
-});
-
-app.get("/venus", function(req, res){
-    res.send("This will be Venus web page!");
-});
-
+var indexRouter = require('./routes/index');
+var topicsRouter = require('./routes/topics');
+app.use('/topics',topicsRouter);
+app.use('/',indexRouter);
 //server listener
 app.listen(process.env.PORT,process.env.IP,function(){
     console.log("Running Express Server...");
 });
+module.exports=app;

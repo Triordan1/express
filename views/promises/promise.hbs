@@ -1,0 +1,23 @@
+<script>
+        function randomsort(a, b) { 
+	return Math.random()>.5 ? -1 : 1;
+    }
+        function returnStringbyRef(str,output){
+         var randomStr = str.split('').sort(randomsort);
+         if(output){
+             output.value = randomStr.join(' ');
+         }
+        }
+        console.log('Getting mixed name (sync, by ref)');
+        let data = {};
+        returnStringbyRef("hello world",data);
+        console.log('(sync, by ref) mixed sentence is',data.value); 
+        function returnStringAsync(str,done){
+         var randomStr = str.split('').sort(randomsort);
+         if(done){
+             done(randomStr);
+         }
+        }
+
+
+</script>

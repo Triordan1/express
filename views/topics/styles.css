@@ -1,0 +1,48 @@
+body {
+    background-color: black;
+    color: white;
+}
+header, nav, footer
+{
+    text-align: center;
+}
+nav a:hover
+{
+ border-bottom:2px orange solid;
+ font-size: 2em;
+ transition: .9s;
+}
+#me, #welcomeText, ul
+{
+    display: flex;
+    flex-direction: column;
+}
+footer
+{
+    clear:left;
+    font-size: .8em;
+    color: gray;
+}
+figure /* NEW */
+{
+    position:Relative;
+    top:0;
+    right:50;
+}
+#endText /* NEW */
+{
+    font-size: x-small;
+    text-align: left;
+}
+hr /* NEW */
+{
+    width:50%;
+}
+ul
+{
+    text-align: left;
+}
+h2
+{
+    text-decoration: underline;
+}
